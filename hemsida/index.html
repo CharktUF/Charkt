@@ -62,14 +62,6 @@
 
             padding: 0 7%;
 
-            /*
-            VIKTIGT:
-            Headern är INTE sticky längre.
-
-            Loggan och menyn stannar alltså
-            högst upp på sidan och följer
-            INTE med när man scrollar.
-            */
             position: relative;
             z-index: 10;
         }
@@ -785,6 +777,22 @@
             color: #111111;
         }
 
+        .footer-email-display {
+            margin-top: 16px;
+            color: #aaaaaa;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .footer-email-display a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .footer-email-display a:hover {
+            text-decoration: underline;
+        }
+
 
         /* COPYRIGHT */
 
@@ -802,6 +810,245 @@
             text-align: center;
 
             font-size: 12px;
+        }
+
+
+        /* =========================
+           KUNDVAGN
+        ========================== */
+
+        .cart-button {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            z-index: 100;
+
+            background: #111111;
+            color: #ffffff;
+            border: none;
+
+            padding: 15px 19px;
+            cursor: pointer;
+
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,0.18);
+        }
+
+        .cart-count {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-width: 22px;
+            height: 22px;
+
+            margin-left: 8px;
+            padding: 0 6px;
+
+            background: #ffffff;
+            color: #111111;
+            border-radius: 50%;
+
+            font-size: 11px;
+        }
+
+        .cart-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 199;
+
+            background: rgba(0,0,0,0.38);
+
+            opacity: 0;
+            visibility: hidden;
+
+            transition: 0.25s ease;
+        }
+
+        .cart-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .cart-panel {
+            position: fixed;
+            top: 0;
+            right: -460px;
+            z-index: 200;
+
+            width: min(430px, 100%);
+            height: 100vh;
+
+            background: #ffffff;
+
+            display: flex;
+            flex-direction: column;
+
+            transition: right 0.3s ease;
+
+            box-shadow: -10px 0 40px rgba(0,0,0,0.12);
+        }
+
+        .cart-panel.open {
+            right: 0;
+        }
+
+        .cart-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 25px;
+
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .cart-header h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 27px;
+            font-weight: 400;
+        }
+
+        .cart-close {
+            border: none;
+            background: transparent;
+            cursor: pointer;
+
+            font-size: 28px;
+            line-height: 1;
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px 25px;
+        }
+
+        .cart-empty {
+            color: #777777;
+            font-size: 14px;
+            padding: 35px 0;
+        }
+
+        .cart-item {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 15px;
+
+            padding: 20px 0;
+
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .cart-item h3 {
+            font-family: Georgia, serif;
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 4px;
+        }
+
+        .cart-item-price {
+            color: #666666;
+            font-size: 13px;
+        }
+
+        .cart-item-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .quantity-button {
+            width: 29px;
+            height: 29px;
+
+            background: #ffffff;
+            border: 1px solid #cccccc;
+
+            cursor: pointer;
+        }
+
+        .remove-button {
+            margin-left: 8px;
+
+            border: none;
+            background: transparent;
+
+            color: #777777;
+
+            text-decoration: underline;
+            cursor: pointer;
+
+            font-size: 11px;
+        }
+
+        .cart-item-total {
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        .cart-footer {
+            padding: 25px;
+
+            border-top: 1px solid #eeeeee;
+
+            background: #fafafa;
+        }
+
+        .cart-total-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            margin-bottom: 18px;
+
+            font-weight: 700;
+        }
+
+        .checkout-button {
+            width: 100%;
+
+            background: #111111;
+            color: #ffffff;
+
+            border: 1px solid #111111;
+
+            padding: 16px;
+
+            cursor: pointer;
+
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+
+            transition: 0.2s ease;
+        }
+
+        .checkout-button:hover {
+            background: #ffffff;
+            color: #111111;
+        }
+
+        .checkout-note {
+            color: #777777;
+            font-size: 11px;
+            line-height: 1.6;
+            margin-top: 12px;
+        }
+
+        .product-button.add-to-cart {
+            cursor: pointer;
+            background: #ffffff;
+            color: #111111;
+        }
+
+        .product-button.add-to-cart:hover {
+            background: #111111;
+            color: #ffffff;
         }
 
 
@@ -1066,12 +1313,14 @@
                     </div>
 
 
-                    <a
-                        href="#"
-                        class="product-button"
+                    <button
+                        type="button"
+                        class="product-button add-to-cart"
+                        data-name="CharktUF Original"
+                        data-price="299"
                     >
-                        LÄS MER
-                    </a>
+                        LÄGG I KORGEN
+                    </button>
 
                 </div>
 
@@ -1110,12 +1359,14 @@
                     </div>
 
 
-                    <a
-                        href="#"
-                        class="product-button"
+                    <button
+                        type="button"
+                        class="product-button add-to-cart"
+                        data-name="CharktUF Classic"
+                        data-price="349"
                     >
-                        LÄS MER
-                    </a>
+                        LÄGG I KORGEN
+                    </button>
 
                 </div>
 
@@ -1154,12 +1405,14 @@
                     </div>
 
 
-                    <a
-                        href="#"
-                        class="product-button"
+                    <button
+                        type="button"
+                        class="product-button add-to-cart"
+                        data-name="CharktUF Premium"
+                        data-price="399"
                     >
-                        LÄS MER
-                    </a>
+                        LÄGG I KORGEN
+                    </button>
 
                 </div>
 
@@ -1442,7 +1695,21 @@
                     </a>
 
 
+                    <a href="mailto:charktuf@gmail.com">
+                        Gmail
+                    </a>
+
+
                 </div>
+
+
+                <p class="footer-email-display">
+                    Mejla oss:
+                    <a href="mailto:charktuf@gmail.com">
+                        charktuf@gmail.com
+                    </a>
+                </p>
+
 
             </div>
 
@@ -1525,6 +1792,11 @@
                     </a>
 
 
+                    <a href="mailto:charktuf@gmail.com">
+                        Gmail — charktuf@gmail.com
+                    </a>
+
+
                 </div>
 
             </div>
@@ -1540,6 +1812,296 @@
 
     </footer>
 
+
+    <!-- =========================
+         KUNDVAGN
+    ========================== -->
+
+    <button
+        type="button"
+        class="cart-button"
+        id="cartButton"
+        aria-label="Öppna kundvagn"
+    >
+        KORG
+        <span class="cart-count" id="cartCount">0</span>
+    </button>
+
+
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+
+    <aside
+        class="cart-panel"
+        id="cartPanel"
+        aria-label="Kundvagn"
+    >
+
+        <div class="cart-header">
+
+            <h2>Din kundvagn</h2>
+
+            <button
+                type="button"
+                class="cart-close"
+                id="cartClose"
+                aria-label="Stäng kundvagn"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="cart-items" id="cartItems"></div>
+
+
+        <div class="cart-footer">
+
+            <div class="cart-total-row">
+                <span>Totalt</span>
+                <span id="cartTotal">0 kr</span>
+            </div>
+
+            <button
+                type="button"
+                class="checkout-button"
+                id="checkoutButton"
+            >
+                GÅ TILL BETALNING
+            </button>
+
+            <p class="checkout-note">
+                Kundvagnen fungerar direkt på GitHub Pages.
+                För riktiga kort- eller Swishbetalningar ska knappen
+                kopplas till er säkra checkout hos vald betaltjänst.
+            </p>
+
+        </div>
+
+    </aside>
+
+
+    <script>
+
+        const CART_STORAGE_KEY = "charktuf_cart";
+
+        let cart = JSON.parse(
+            localStorage.getItem(CART_STORAGE_KEY) || "[]"
+        );
+
+
+        const cartButton = document.getElementById("cartButton");
+        const cartPanel = document.getElementById("cartPanel");
+        const cartOverlay = document.getElementById("cartOverlay");
+        const cartClose = document.getElementById("cartClose");
+
+        const cartItems = document.getElementById("cartItems");
+        const cartCount = document.getElementById("cartCount");
+        const cartTotal = document.getElementById("cartTotal");
+        const checkoutButton = document.getElementById("checkoutButton");
+
+
+        function saveCart() {
+
+            localStorage.setItem(
+                CART_STORAGE_KEY,
+                JSON.stringify(cart)
+            );
+
+        }
+
+
+        function openCart() {
+
+            cartPanel.classList.add("open");
+            cartOverlay.classList.add("open");
+
+        }
+
+
+        function closeCart() {
+
+            cartPanel.classList.remove("open");
+            cartOverlay.classList.remove("open");
+
+        }
+
+
+        function addToCart(name, price) {
+
+            const existing = cart.find(
+                item => item.name === name
+            );
+
+            if (existing) {
+
+                existing.quantity += 1;
+
+            } else {
+
+                cart.push({
+                    name: name,
+                    price: price,
+                    quantity: 1
+                });
+
+            }
+
+            saveCart();
+            renderCart();
+            openCart();
+
+        }
+
+
+        function changeQuantity(index, amount) {
+
+            cart[index].quantity += amount;
+
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1);
+            }
+
+            saveCart();
+            renderCart();
+
+        }
+
+
+        function removeItem(index) {
+
+            cart.splice(index, 1);
+
+            saveCart();
+            renderCart();
+
+        }
+
+
+        function renderCart() {
+
+            cartItems.innerHTML = "";
+
+            let total = 0;
+            let count = 0;
+
+
+            if (cart.length === 0) {
+
+                cartItems.innerHTML =
+                    '<p class="cart-empty">Din kundvagn är tom.</p>';
+
+            }
+
+
+            cart.forEach((item, index) => {
+
+                total += item.price * item.quantity;
+                count += item.quantity;
+
+
+                const itemElement = document.createElement("div");
+
+                itemElement.className = "cart-item";
+
+                itemElement.innerHTML = `
+                    <div>
+                        <h3>${item.name}</h3>
+
+                        <div class="cart-item-price">
+                            ${item.price} kr / st
+                        </div>
+
+                        <div class="cart-item-controls">
+
+                            <button
+                                class="quantity-button"
+                                type="button"
+                                onclick="changeQuantity(${index}, -1)"
+                            >
+                                −
+                            </button>
+
+                            <span>
+                                ${item.quantity}
+                            </span>
+
+                            <button
+                                class="quantity-button"
+                                type="button"
+                                onclick="changeQuantity(${index}, 1)"
+                            >
+                                +
+                            </button>
+
+                            <button
+                                class="remove-button"
+                                type="button"
+                                onclick="removeItem(${index})"
+                            >
+                                Ta bort
+                            </button>
+
+                        </div>
+                    </div>
+
+                    <div class="cart-item-total">
+                        ${item.price * item.quantity} kr
+                    </div>
+                `;
+
+                cartItems.appendChild(itemElement);
+
+            });
+
+
+            cartCount.textContent = count;
+            cartTotal.textContent = total + " kr";
+
+        }
+
+
+        document
+            .querySelectorAll(".add-to-cart")
+            .forEach(button => {
+
+                button.addEventListener("click", () => {
+
+                    addToCart(
+                        button.dataset.name,
+                        Number(button.dataset.price)
+                    );
+
+                });
+
+            });
+
+
+        cartButton.addEventListener("click", openCart);
+        cartClose.addEventListener("click", closeCart);
+        cartOverlay.addEventListener("click", closeCart);
+
+
+        checkoutButton.addEventListener("click", () => {
+
+            if (cart.length === 0) {
+
+                alert("Din kundvagn är tom.");
+                return;
+
+            }
+
+            alert(
+                "Kundvagnen är klar. Nästa steg är att koppla denna knapp till CharktUF:s riktiga betalningsleverantör."
+            );
+
+        });
+
+
+        renderCart();
+
+    </script>
 
 </body>
 </html>
